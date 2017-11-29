@@ -1,12 +1,20 @@
 package com.tc25.bean;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable , Comparable<User> {
 	private String userAccount;//属性;用户帐号
 	private String userName;//属性:用户昵称
 	private int userId;//属性:用户ID
 	private String userPwd;//属性:用户密码
 	private String userPwdTip;//属性:用户密码提示
-	private boolean userStatus;//属性:用户状态(正常|黑名单)
+	private Status userStatus;//属性:用户状态(正常|黑名单)
+	//枚举,定义用户的状态   
+	enum Status{
+		STATUS_OK,
+		STATUS_BLACK,
+		STATUS_DEL;	
+	} 
 	//提供get和set方法
 	public String getUserAccount() {
 		return userAccount;
